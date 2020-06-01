@@ -3,8 +3,10 @@ var app = new Vue({
 	data: {
 		funcionario: {id: 0, nome: "", email: "", datanasc: "", salario: 0.00},
 		funcionarios: [],
-		url: "./funcionario.php"
-	},
+		url: "./contatos.php"
+    },
+    
+    
 	created: function() {
 		this.obterListaFuncionarios();
 	},
