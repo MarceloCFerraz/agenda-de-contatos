@@ -1,7 +1,7 @@
 <?php 
-	$host = "127.0.0.1";
+	$host = "localhost";
 	$usuario = "root";
-	$senha = "123";
+	$senha = "";
 	$db = "agenda";
 
 	$conexao = new mysqli($host, $usuario, $senha, $db);
