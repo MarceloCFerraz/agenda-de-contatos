@@ -1,11 +1,8 @@
 <?php 
-
-	// CRUD => Create, Read, Update e Delete
-
 	$host = "localhost";
 	$usuario = "root";
 	$senha = "123";
-	$db = "tw";
+	$db = "agenda";
 
 	$conexao = new mysqli($host, $usuario, $senha, $db);
 

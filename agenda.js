@@ -1,12 +1,10 @@
 var app = new Vue({
 	el: "#app",
 	data: {
-		funcionario: {id: 0, nome: "", email: "", datanasc: "", salario: 0.00},
-		funcionarios: [],
-		url: "./contatos.php"
-    },
-    
-    
+        contatos: {id: 0, nome: "", email: "", telefone: 0, intagram: "", facebook:"",linkedin:""},
+		contatos: [],
+		url: "./agenda.php"
+	},
 	created: function() {
 		this.obterListaFuncionarios();
 	},
