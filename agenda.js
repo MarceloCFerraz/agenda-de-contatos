@@ -1,15 +1,15 @@
 var app = new Vue({
 	el: "#app",
 	data: {
-        contatos: {id: 0, nome: "", email: "", telefone: 0, intagram: "", facebook:"",linkedin:""},
+        contato: {id: 0, nome: "", email: "", telefone: "", intagram: "", facebook:"",linkedin:""},
 		contatos: [],
 		url: "./agenda.php"
 	},
 	created: function() {
-		this.obterListaContatos();
+		this.ListarContatos();
 	},
 	methods: {
-		obterListaContatos() {
+		ListarContatos() {
 			axios.get(this.url, {
 				params: {
 					operacao: "read"
@@ -34,27 +34,27 @@ var app = new Vue({
 			then(response => {
 				console.log(response);
 				if (!response.data.erro) {
-					this.obterListaContatos();
-					this.contato = {id: 0, nome: "", email: "", datanasc: "", salario: 0.00};
+					this.ListarContatos();
+					this.contato = {id: 0, nome: "", email: "", telefone: "", intagram: "", facebook:"",linkedin:""};
 				}
 			}); 
 
 		},
 
-		editarContato(idFunc) {
-			this.contato = Object.assign({}, this.contatos.filter(f => f.id === idFunc)[0]);
+		editarContato(idContato) {
+			this.contato = Object.assign({}, this.contatos.filter(c => c.id === idContato)[0]);
 		},
 
-		removerContato(idFunc) {
+		removerContato(idContato) {
 			axios.get(this.url, {
 				params: {
 					operacao: "delete",
-					id: idFunc
+					id: idContato
 				}
 			}).
 			then(response => {
 				if (!response.data.erro)
-					this.obterListaContatos();
+					this.ListarContatos();
 			}) 			
 		}
 	}
