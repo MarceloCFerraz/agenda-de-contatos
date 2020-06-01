@@ -6,10 +6,10 @@ var app = new Vue({
 		url: "./agenda.php"
 	},
 	created: function() {
-		this.obterListaFuncionarios();
+		this.obterListaContatos();
 	},
 	methods: {
-		obterListaFuncionarios() {
+		obterListaContatos() {
 			axios.get(this.url, {
 				params: {
 					operacao: "read"
@@ -21,7 +21,7 @@ var app = new Vue({
 			}) 
 		},
 
-		salvarFuncionario() {
+		salvarContato() {
 			let form = new FormData();
 			for (let i in this.contato)
 				form.append(i, this.contato[i]);
@@ -34,18 +34,18 @@ var app = new Vue({
 			then(response => {
 				console.log(response);
 				if (!response.data.erro) {
-					this.obterListaFuncionarios();
+					this.obterListaContatos();
 					this.contato = {id: 0, nome: "", email: "", datanasc: "", salario: 0.00};
 				}
 			}); 
 
 		},
 
-		editarFuncionario(idFunc) {
+		editarContato(idFunc) {
 			this.contato = Object.assign({}, this.contatos.filter(f => f.id === idFunc)[0]);
 		},
 
-		removerFuncionario(idFunc) {
+		removerContato(idFunc) {
 			axios.get(this.url, {
 				params: {
 					operacao: "delete",
@@ -54,7 +54,7 @@ var app = new Vue({
 			}).
 			then(response => {
 				if (!response.data.erro)
-					this.obterListaFuncionarios();
+					this.obterListaContatos();
 			}) 			
 		}
 	}
