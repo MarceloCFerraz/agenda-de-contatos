@@ -1,11 +1,67 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<title>Iniciando com o Vue</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>	
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<style type="text/css">
+		table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		td, th {
+			border: 1px solid black;
+			text-align: left;
+		}
+	</style>
 </head>
+
 <body>
-    <h1>Hello World!</h1>
+	<div id="app">
+		<input type="hidden" name="id" v-model="funcionario.id">
+		<p>Nome: <input type="text" name="nome" v-model="funcionario.nome"></p>
+		<p>e-Mail: <input type="text" name="email" v-model="funcionario.email"></p>
+		<p>Data Nascimento: <input type="date" name="datanasc" v-model="funcionario.datanasc"></p>
+		<p>Salario: <input type="number" name="salario" min="0.01" max="1000000.00" step="0.01" v-model="funcionario.salario"></p>
+		<p>
+			<input type="button" name="salvar" value="Salvar" v-on:click="salvarFuncionario()">
+			<input type="button" name="limpar" value="Limpar" onclick="">
+		</p>
+
+		<hr>
+
+		<table v-if="funcionarios.length > 0">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>eMail</th>
+					<th>Data Nascimento</th>
+					<th>Salario</th>
+					<th></th>
+				</tr>
+			</thead>			
+			<tbody>
+				<tr v-for="func in funcionarios">
+					<td> {{ func.id }} </td>
+					<td> {{ func.nome }} </td>
+					<td> {{ func.email }} </td>
+					<td> {{ func.datanasc }} </td>
+					<td> {{ func.salario }} </td>
+					<td>
+						<a href="#" v-on:click.prevent="editarFuncionario(func.id)">Editar</a>
+						&nbsp;&nbsp;
+						<a href="#" v-on:click.prevent="removerFuncionario(func.id)">Remover</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<p v-else>Nao ha registros!</p>
+
+	</div>
+
+	<script src="funcionario.js"></script>
 </body>
+
 </html>
