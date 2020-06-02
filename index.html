@@ -6,9 +6,9 @@
 
         <title>Agenda de Contatos</title>
 
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="style.css">
 
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>    
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
 
@@ -32,35 +32,33 @@
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
-                        <th>eMail</th>
+                        <th>E-Mail</th>
                         <th>Telefone</th>
                         <th>Instagram</th>
                         <th>Facebook</th>
-                        <th>Linkedin</th>
                         <th></th>
                     </tr>
-                </thead>            
+                </thead>
                 <tbody>
-                    <tr v-for="cont in contatos">
-                        <td> {{ cont.id }} </td>
-                        <td> {{ cont.nome }} </td>
-                        <td> {{ cont.email }} </td>
-                        <td> {{ cont.telefone }} </td>
-                        <td> {{ cont.instagram }} </td>
-                        <td> {{ cont.facebook }} </td>
-                        <td> {{ cont.linkedin }} </td>
+                    <tr v-for="contato in contatos">
+                        <td> {{ contato.id }} </td>
+                        <td> {{ contato.nome }} </td>
+                        <td> {{ contato.email }} </td>
+                        <td> {{ contato.telefone }} </td>
+                        <td> {{ contato.instagram }} </td>
+                        <td> {{ contato.facebook }} </td>
                         <td>
-                            <a href="#" v-on:click.prevent="editarContato(cont.id)">Editar</a>
+                            <a href="#" v-on:click.prevent="editarContato(contato.id)">Editar</a>
                             &nbsp;&nbsp;
-                            <a href="#" v-on:click.prevent="removerContato(cont.id)">Remover</a>
+                            <a href="#" v-on:click.prevent="removerContato(contato.id)">Remover</a>
                         </td>
                     </tr>
                 </tbody>
             </table>
             <p v-else>Nao ha registros!</p>
 
-        </div>
-
+		</div>
+		
         <script src="agenda.js"></script>
     </body>
 

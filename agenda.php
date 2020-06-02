@@ -17,6 +17,8 @@
     if (isset($_GET["operacao"]))
         $operacao = $_GET["operacao"];
 
+    echo $operacao;
+
     if ($operacao == "read") { // LISTA OS CONTATOS PELA LEITURA 
         $sql = "select * from contatos";
         if (isset($_GET["id"])) // SE O ID JÁ FOR PASSADO, CONDIÇÃO PARA PROCURAR ESTE ID
@@ -24,9 +26,10 @@
         $exec = $conexao->query($sql); 
 
         $contatos = array();
-        while ($contatos = $exec->fetch_assoc())
-            array_push($contatos, $contatos);
+        while ($contato = $exec->fetch_assoc())
+            array_push($contatos, $contato);
 
+        $resultado["erro"] = false;
         $resultado["registros"] = $exec->num_rows;
         $resultado["contatos"] = $contatos;
 
@@ -37,7 +40,6 @@
         $telefone = $_POST["telefone"];
         $instagram = $_POST["instagram"];
         $facebook = $_POST["facebook"];
-        $linkedin = $_POST["linkedin"];
 
         if (empty($nome)) {
             $resultado["erro"] = true;

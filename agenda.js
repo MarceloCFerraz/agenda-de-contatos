@@ -2,7 +2,7 @@ var app = new Vue({
     el: "#app",
     data: {
         contato: {id: 0, nome: "", email: "", telefone: "", intagram: "", facebook:""},
-        contatos: [],
+        contatos: [] = [],
         url: "./agenda.php"
     },
     created: function() {
@@ -16,8 +16,11 @@ var app = new Vue({
 					operacao: "read"
 				}
 			}).then(response => {
-				if (!response.data.erro)
-					this.contatos = response.data.contatos;
+				if (!response.data.erro){
+					console.log(response.data.registro); // undefined assistir aula 1205 e 1805
+					this.contatos = response.data.contatos;					
+					console.log(this.contatos); // undefined
+				}
 			}) 
 		},
 
