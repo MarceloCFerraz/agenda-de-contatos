@@ -18,7 +18,7 @@
         $operacao = $_GET["operacao"];
 
     if ($operacao == "read") { // LISTA OS CONTATOS PELA LEITURA 
-        $sql = "Select * From contatos order by nome";
+        $sql = "select * from contatos";
         if (isset($_GET["id"])) // SE O ID JÁ FOR PASSADO, CONDIÇÃO PARA PROCURAR ESTE ID
             $sql .= " where id = $_GET[id]";
         $exec = $conexao->query($sql); 
@@ -43,8 +43,8 @@
             $resultado["erro"] = true;
             $resultado["msg"] = "Nome nao informado!";
         } else {            
-            $sql = "Insert into contatos (nome, email, telefone, instagram, facebook, likedin) 
-                    values ('$nome', '$email', '$telefone', '$instagram', '$facebook','$linkedin')";
+            $sql = "Insert into contatos (nome, email, telefone, instagram, facebook) 
+                    values ('$nome', '$email', '$telefone', '$instagram', '$facebook')";
             if (!$conexao->query($sql)) {
                 $resultado["erro"] = true;
                 $resultado["msg"] = $conexao->error;

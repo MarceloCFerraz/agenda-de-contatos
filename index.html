@@ -1,72 +1,67 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>	
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-	<style type="text/css">
-		table {
-			width: 100%;
-			border-collapse: collapse;
-		}
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		td, th {
-			border: 1px solid black;
-			text-align: left;
-		}
-	</style>
-</head>
+        <title>Agenda de Contatos</title>
 
-<body>
-	<div id="app">
-		<input type="hidden" name="id" v-model="contato.id">
-		<p>Nome: <input type="text" name="nome" v-model="contato.nome"></p>
-		<p>e-Mail: <input type="text" name="email" v-model="contato.email"></p>
-		<p>N° telefone: <input type="text" name="telefone" v-model="contato.telefone"></p>
-		<p>Instagram: <input type="text" name="instagram"  v-model="contato.instagram"></p>
-		<p>Facebook: <input type="text" name="facebook" v-model="contato.facebook"></p>
-		<p>Linkedin: <input type="text" name="linkedin" v-model="contato.linkedin"></p>
-		<p>
-			<input type="button" name="salvar" value="Salvar" v-on:click="salvarContato()">
-			<input type="button" name="limpar" value="Limpar" onclick="">
-		</p>
+        <link rel="stylesheet" href="styles.css">
 
-		<hr>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>    
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
 
-		<table v-if="contatos.length > 0">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Nome</th>
-					<th>eMail</th>
-					<th>Telefone</th>
-					<th>Instagram</th>
-					<th>Facebook</th>
-					<th>Linkedin</th>
-					<th></th>
-				</tr>
-			</thead>			
-			<tbody>
-				<tr v-for="cont in contatos">
-					<td> {{ cont.id }} </td>
-					<td> {{ cont.nome }} </td>
-					<td> {{ cont.email }} </td>
-					<td> {{ cont.telefone }} </td>
-					<td> {{ cont.instagram }} </td>
-					<td> {{ cont.facebook }} </td>
-					<td> {{ cont.linkedin }} </td>
-					<td>
-						<a href="#" v-on:click.prevent="editarContato(cont.id)">Editar</a>
-						&nbsp;&nbsp;
-						<a href="#" v-on:click.prevent="removerContato(cont.id)">Remover</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<p v-else>Nao ha registros!</p>
+    <body>
+        <div id="app">
+            <input type="hidden" name="id" v-model="contato.id">
+            <p>Nome: <input type="text" name="nome" v-model="contato.nome"></p>
+            <p>E-Mail: <input type="text" name="email" v-model="contato.email"></p>
+            <p>Número de telefone: <input type="text" name="telefone" v-model="contato.telefone"></p>
+            <p>Instagram: <input type="text" name="instagram"  v-model="contato.instagram"></p>
+            <p>Facebook: <input type="text" name="facebook" v-model="contato.facebook"></p>
+            <p>
+                <input type="button" name="salvar" value="Salvar" v-on:click="salvarContato()">
+                <input type="button" name="limpar" value="Limpar" onclick="">
+            </p>
 
-	</div>
+            <hr>
 
-	<script src="agenda.js"></script>
-</body>
+            <table v-if="contatos.length > 0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>eMail</th>
+                        <th>Telefone</th>
+                        <th>Instagram</th>
+                        <th>Facebook</th>
+                        <th>Linkedin</th>
+                        <th></th>
+                    </tr>
+                </thead>            
+                <tbody>
+                    <tr v-for="cont in contatos">
+                        <td> {{ cont.id }} </td>
+                        <td> {{ cont.nome }} </td>
+                        <td> {{ cont.email }} </td>
+                        <td> {{ cont.telefone }} </td>
+                        <td> {{ cont.instagram }} </td>
+                        <td> {{ cont.facebook }} </td>
+                        <td> {{ cont.linkedin }} </td>
+                        <td>
+                            <a href="#" v-on:click.prevent="editarContato(cont.id)">Editar</a>
+                            &nbsp;&nbsp;
+                            <a href="#" v-on:click.prevent="removerContato(cont.id)">Remover</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p v-else>Nao ha registros!</p>
+
+        </div>
+
+        <script src="agenda.js"></script>
+    </body>
 
 </html>
