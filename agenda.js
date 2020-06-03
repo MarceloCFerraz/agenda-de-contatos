@@ -1,7 +1,8 @@
 var app = new Vue({
     el: "#app",
     data: {
-        contato: {id: 0, nome: "", email: "", telefone: "", instagram: "", facebook:""},
+        default: {} = { id: 0, nome: null, email: null, telefone: null, instagram: null, facebook: null},
+        contato: {} = { id: 0, nome: null, email: null, telefone: null, instagram: null, facebook: null },
         contatos: [] = [],
         url: "./agenda.php"
     },
@@ -20,14 +21,17 @@ var app = new Vue({
             
             var continua = true;
 
-            // if (typeof (this.contato[1]) == "undefined") {
-            //     alert("Nome não informado!");
-            //     continua = false;
-            // }
-            // if (typeof (this.contato[3]) == "undefined") {
-            //     alert("Número de Telefone não informado!");
-            //     continua = false;
-            // }
+            if (this.contato[1] === null) {
+                alert("Nome não informado!");
+                continua = false;
+                this.contato = this.default;
+            }
+            if (this.contato[3] === null) {
+                alert("Número de Telefone não informado!");
+                continua = false;
+                this.contato = this.default;
+            }
+
             
             return continua;
         },
@@ -63,7 +67,7 @@ var app = new Vue({
                     alert(response.data.msg);
                     if (!response.data.erro) {
                         this.ListarContatos();
-                        this.contato = {id: 0, nome: "", email: "", telefone: "", intagram: "", facebook:""};
+                        this.contato = this.default;
                     }
                 });
             }
