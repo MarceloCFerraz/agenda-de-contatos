@@ -20,14 +20,14 @@ var app = new Vue({
             
             var continua = true;
 
-            if (typeof (this.contato[1]) == "undefined") {
-                alert("Nome não informado!");
-                continua = false;
-            }
-            if (typeof (this.contato[3]) == "undefined") {
-                alert("Número de Telefone não informado!");
-                continua = false;
-            }
+            // if (typeof (this.contato[1]) == "undefined") {
+            //     alert("Nome não informado!");
+            //     continua = false;
+            // }
+            // if (typeof (this.contato[3]) == "undefined") {
+            //     alert("Número de Telefone não informado!");
+            //     continua = false;
+            // }
             
             return continua;
         },
