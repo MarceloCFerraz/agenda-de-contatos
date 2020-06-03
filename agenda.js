@@ -1,8 +1,8 @@
 var app = new Vue({
     el: "#app",
     data: {
-        default: {} = { id: 0, nome: null, email: null, telefone: null, instagram: null, facebook: null},
-        contato: {} = { id: 0, nome: null, email: null, telefone: null, instagram: null, facebook: null },
+        default: {} = { id: null, nome: "", email: null, telefone: "", instagram: null, facebook: null },
+        contato: {} = { id: null, nome: "", email: null, telefone: "", instagram: null, facebook: null },
         contatos: [] = [],
         url: "./agenda.php"
     },
@@ -21,17 +21,18 @@ var app = new Vue({
             
             var continua = true;
 
-            if (this.contato[1] === null) {
+            console.log(this.contato[1]);
+            console.log(this.contato[3]);
+            if (typeof (this.contato[1]) == "undefined") {
                 alert("Nome não informado!");
                 continua = false;
                 this.contato = this.default;
             }
-            if (this.contato[3] === null) {
+            if (typeof (this.contato[3]) == "undefined") {
                 alert("Número de Telefone não informado!");
                 continua = false;
                 this.contato = this.default;
             }
-
             
             return continua;
         },
@@ -51,7 +52,7 @@ var app = new Vue({
 		},
 
         salvarContato() {
-            if (this.CheckFields()) {
+            // if (this.CheckFields()) {
                 let form = new FormData();
                 for (let i in this.contato)
                     form.append(i, this.contato[i]);
@@ -63,14 +64,16 @@ var app = new Vue({
                     }
                 }).
                 then(response => {
-                    console.log(response);
                     alert(response.data.msg);
+                    
                     if (!response.data.erro) {
                         this.ListarContatos();
                         this.contato = this.default;
+                    } else {
+                        // location.reload();
                     }
                 });
-            }
+            // }
 
         },
 
@@ -87,8 +90,12 @@ var app = new Vue({
             }).
             then(response => {
                 alert(response.data.msg);
-                if (!response.data.erro)
+
+                if (!response.data.erro){
                     this.ListarContatos();
+                } else {
+                    // location.reload();
+                }
             })             
         }
     }

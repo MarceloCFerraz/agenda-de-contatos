@@ -40,9 +40,9 @@
         $instagram = $_POST["instagram"];
         $facebook = $_POST["facebook"];
 
-        if (empty($nome)) {
+        if (empty($nome) || empty($telefone)) {
             $resultado["erro"] = true;
-            $resultado["msg"] = "Nome nao informado!";
+            $resultado["msg"] = "Verifique os campos obrigatórios";
         } else {            
             $sql = "Insert into contato (nome, email, telefone, instagram, facebook) values ('$nome', '$email', '$telefone', '$instagram', '$facebook')";
             if (!$conexao->query($sql)) {
@@ -63,11 +63,19 @@
         $instagram = $_POST["instagram"];
         $facebook = $_POST["facebook"];
 
-        $sql = "Update contato set nome = '$nome', email = '$email', telefone = '$telefone', instagram = '$instagram', facebook = '$facebook' where id =$id";
-
-        if (!$conexao->query($sql)) { // TESTA SE HOUVE ERRO NO COMANDO SQL
+        if (empty($nome) || empty($telefone)) {
             $resultado["erro"] = true;
-            $resultado["msg"] = $conexao->error;
+            $resultado["msg"] = "Verifique os campos obrigatórios";
+        } else { 
+            $sql = "Update contato set nome = '$nome', email = '$email', telefone = '$telefone', instagram = '$instagram', facebook = '$facebook' where id =$id";
+
+            if (!$conexao->query($sql)) { // TESTA SE HOUVE ERRO NO COMANDO SQL
+                $resultado["erro"] = true;
+                $resultado["msg"] = $conexao->error;
+            } else {
+                $resultado["erro"] = false;
+                $resultado["msg"] = "Contato atualizado com sucesso!";
+            }
         }
     } else
     if ($operacao == "delete") { // DELETAR CONTATO
@@ -78,8 +86,10 @@
         if (!$conexao->query($sql)) {
             $resultado["erro"] = true;
             $resultado["msg"] = $conexao->error;
-        } else
+        } else{
+            $resultado["erro"] = false;
             $resultado["msg"] = "Contato removido com sucesso!";
+        }
     }
 
     echo json_encode($resultado);
