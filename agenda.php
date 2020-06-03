@@ -14,11 +14,10 @@
     $resultado = array("erro" => false); // VETOR PARA GUARDAR ERROS
 
     $operacao = "";
-    if (isset($_GET["operacao"]))
+    if (isset($_GET["operacao"])){
         $operacao = $_GET["operacao"];
-
-    echo $operacao;
-
+    }
+    
     if ($operacao == "read") { // LISTA OS CONTATOS PELA LEITURA 
         $sql = "select * from contatos";
         if (isset($_GET["id"])) // SE O ID JÁ FOR PASSADO, CONDIÇÃO PARA PROCURAR ESTE ID
@@ -55,15 +54,14 @@
 
     } else
     if ($operacao == "update") { // EDITAR CONTATO
+        $id = $_POST["id"];
         $nome = $_POST["nome"];
         $email = $_POST["email"];
         $telefone = $_POST["telefone"];
         $instagram = $_POST["instagram"];
         $facebook = $_POST["facebook"];
-        $linkedin = $_POST["linkedin"];
 
-        $sql = "Update contatos set nome = '$nome', email = '$email', '$telefone', 
-                '$instagram', '$facebook','$linkedin' where id =$id";
+        $sql = "Update contatos set nome = '$nome', email = '$email', telefone = '$telefone', instagram = '$instagram', facebook = '$facebook' where id =$id";
 
         if (!$conexao->query($sql)) { // TESTA SE HOUVE ERRO NO COMANDO SQL
             $resultado["erro"] = true;
