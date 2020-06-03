@@ -17,7 +17,7 @@ var app = new Vue({
 				}
 			}).then(response => {
 				if (!response.data.erro){
-					console.log(response.data.registro); // undefined assistir aula 1205 e 1805
+					console.log(response.data); // undefined assistir aula 1205 e 1805
 					this.contatos = response.data.contatos;					
 					console.log(this.contatos); // undefined
 				}
