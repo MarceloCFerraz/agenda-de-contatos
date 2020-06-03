@@ -1,16 +1,4 @@
 var app = new Vue({
-<<<<<<< HEAD
-	el: "#app",
-	data: {
-		contato:{id:0, nome: "", email: "", telefone: ""},
-		contatos: [],
-		url: "./agenda.php"
-	},
-	created: function() {
-		this.ListarContatos();
-	},
-	methods: {
-=======
     el: "#app",
     data: {
         contato: {id: 0, nome: "", email: "", telefone: "", intagram: "", facebook:""},
@@ -22,21 +10,11 @@ var app = new Vue({
     },
 	methods: 
 	{
->>>>>>> 689767694e87627d1684f561f23f5cd8d04748a6
 		ListarContatos() {
 			axios.get(this.url, {
 				params: {
 					operacao: "read"
 				}
-<<<<<<< HEAD
-			}).
-			then(response =>{
-				console.log(response.data);
-			})
-		}
-
-	}
-=======
 			}).then(response => {
 				if (!response.data.erro){
 					console.log(response.data); // undefined assistir aula 1205 e 1805
@@ -82,5 +60,4 @@ var app = new Vue({
             })             
         }
     }
->>>>>>> 689767694e87627d1684f561f23f5cd8d04748a6
 })
