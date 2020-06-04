@@ -11,17 +11,26 @@
 
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+       
     </head>
 
     <body>
         <div id="app" class="background-home">
             <section class="col-8 main-card">
                 <div class="card-content">
+
+                    
                     <div class="title">
                         <h2>Sua Lista de Contatos</h2>
                     </div>
+
+                    <div class="col-13 HiddenButton">
+                            <input type="button" name="Showhide" id="esconder" onclick="ShowHideX(0)" class="circulo blue" placeholder="+">
+                        </form>
+                    </div>
+                    
                     <div v-if="contatos.length > 0" class="col-4 list-group contacts-list">
-                        <div v-for="contato in contatos" class="contact-object" v-on:click.prevent="editarContato(contato.id)">
+                        <div v-for="contato in contatos" class="contact-object" v-on:click.prevent="editarContato(contato.id)" onclick="ShowHideX(0)">
                             <div class="list-group-item list-group-item-action contact-info">
                                 <div class="contact-icon">
                                     <input type="hidden" name="id" v-model="contato.id">
@@ -32,50 +41,60 @@
                                 </div>
                                 <div class="contact-actions">
                                     <a href="#" v-on:click.prevent="removerContato(contato.id)">Remover</a>
-                                </div>
-                                
+                                </div>                                
                             </div>
                         </div>
                     </div>
-                    <div class="col-7 tab-content">
-                        CAMPOS DE ADICIONAR OU EDITAR
-                        <!-- Continuar a partir daqui! -->
+                    <div class="col-4 list-group contacts-list" v-else>
+                        <div class="contact-object" style="">
+                            <p class="no-contacts">Nao há registros!</p>
+                        </div>
                     </div>
-                    <div v-else>
-                        <p>Nao ha registros!</p>
+                    <div class="col-7 tab-content">
+                        <!-- Continuar a partir daqui! -->
+                        <div class="main-obs">
+                            <div style="display: none;" id="obs">
+                                <div class="form-group formBorda  border-primary">
+                                    <input type="hidden" name="id" v-model="contato.id" class="form-control">
+                                    <p>
+                                        <label>Nome</label><span class="red-star">*</span>:
+                                        <input type="text" name="nome" v-model="contato.nome" class="form-control">
+                                    </p>
+                                    <p>
+                                        <label>Número de telefone</label><span class="red-star">*</span>:
+                                        <input type="text" name="telefone" v-model="contato.telefone" class="form-control">
+                                    </p>
+                                    <p>
+                                        <label>E-Mail:</label>
+                                        <input type="text" name="email" v-model="contato.email" class="form-control">
+                                    </p>
+                                    <p>
+                                        <label>Instagram:</label>
+                                        <input type="text" name="instagram" v-model="contato.instagram" class="form-control">
+                                    </p>
+                                    <p>
+                                        <label>Facebook:</label>
+                                        <input type="text" name="facebook" v-model="contato.facebook" class="form-control">
+                                    </p>
+                                    <p>
+                                        <input type="button" class="btn btn-success" name="salvar" value="Salvar" v-on:click="salvarContato()">
+                                        <input type="button" class="btn btn-light" name="limpar" value="Limpar" onclick="">
+                                    </p>
+                                    <hr>
+                                </div>
+                        
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </section>
-            <!-- <input type="hidden" name="id" v-model="contato.id">
-            <p>
-                Nome<span class="red-star">*</span>: 
-                <input type="text" name="nome" v-model="contato.nome">
-            </p>
-            <p>
-                Número de telefone<span class="red-star">*</span>: 
-                <input type="text" name="telefone" v-model="contato.telefone">
-            </p>
-            <p>
-                E-Mail: 
-                <input type="text" name="email" v-model="contato.email">
-            </p>
-            <p>
-                Instagram: 
-                <input type="text" name="instagram"  v-model="contato.instagram">
-            </p>
-            <p>
-                Facebook: 
-                <input type="text" name="facebook" v-model="contato.facebook">
-            </p>
-            <p>
-                <input type="button" name="salvar" value="Salvar" v-on:click="salvarContato()">
-                <input type="button" name="limpar" value="Limpar" onclick="">
-            </p> 
-            <hr>
-            -->
-		</div>
-		
+           
+            
+        </div>
+        <script type="text/javascript" src="ShowHide.js"></script>
         <script src="agenda.js"></script>
+        
     </body>
 
 </html>

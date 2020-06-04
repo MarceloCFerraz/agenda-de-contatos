@@ -36,7 +36,7 @@ var app = new Vue({
             
             return continua;
         },
-
+        
 		ListarContatos() {
 			axios.get(this.url, {
 				params: {
