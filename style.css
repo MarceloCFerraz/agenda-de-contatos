@@ -126,3 +126,15 @@ td, th {
     padding-bottom: 10px;
 }
 
+label{
+    font: bold;
+    color: #fff;
+}
+
+.formBorda{
+    background: rgb(65, 65, 190);
+    border: solid 1px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
