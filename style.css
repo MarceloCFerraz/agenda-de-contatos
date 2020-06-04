@@ -1,3 +1,18 @@
+/* default font: lato
+    background azul : #B7D6F7
+    background verde: #63F2E7
+    border: #8492A6
+
+    verde lima: #77D353
+    vermelho: #FF0004 
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
+*{
+    font-family: 'Lato', 'Roboto', sans-serif;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -6,6 +21,51 @@ table {
 td, th {
     border: 1px solid black;
     text-align: left;
+}
+
+.background-home{
+    background-color: #B7D6F7;
+    width: 100%;
+    height: 100%;
+}
+
+.main-card{
+    margin: 5%;
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
+
+.card-content{
+    margin: 5%;
+}
+
+.title{
+    text-align: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.contacts-list{
+    border: 1px #8492A6;
+    border-radius: 30%;
+}
+
+.contact-object{
+    margin: 5%;
+    border: 1px #8492A6;
+    border-radius: 30%;
+}
+
+.contact-icon{
+    width: 20px;
+    height: auto;
+    background-color: #8492A6;
+    border-radius: 50%;
+}
+
+.contact-info{
+
 }
 
 .red-star{
