@@ -36,6 +36,16 @@ var app = new Vue({
             
             return continua;
         },
+        
+
+        ShowHideX(x){
+            if(x == 0)
+                document.getElementById('obs').style.display='none';
+             else
+                    document.getElementById('obs').style.display='block';
+            
+            return;
+        },
 
 		ListarContatos() {
 			axios.get(this.url, {
