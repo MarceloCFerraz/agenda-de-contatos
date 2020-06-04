@@ -14,39 +14,37 @@
     </head>
 
     <body>
-        <div id="app">
-            <div class="background-home">
-                <div class="main-card">
-                    <div class="card-content">
-                        <div class="title">
-                            <h2>Sua Lista de Contatos</h2>
-                        </div>
-                        <div v-if="contatos.length > 0" class="list-group contacts-list">
-                            <div v-for="contato in contatos" class="contact-object">                                
-                                <div class="col-4 list-group-item list-group-item-action contact-info">
-                                    <div class="contact-icon">
-                                        <input type="hidden" name="id" v-model="contato.id">
-                                    </div> <!-- é pra ser uma bola com tamanho fixo só pra ocupar espaço msm -->
+        <div id="app" class="background-home">
+            <section class="col-8 main-card">
+                <div class="card-content">
+                    <div class="title">
+                        <h2>Sua Lista de Contatos</h2>
+                    </div>
+                    <div v-if="contatos.length > 0" class="col-4 list-group contacts-list">
+                        <div v-for="contato in contatos" class="contact-object">                                
+                            <div class="list-group-item list-group-item-action contact-info">
+                                <div class="contact-icon">
+                                    <input type="hidden" name="id" v-model="contato.id">
+                                </div> <!-- é pra ser uma bola com tamanho fixo só pra ocupar espaço msm -->
 
-                                    {{ contato.nome }}
-                                    {{ contato.telefone }}
-                                    
-                                    <a href="#" v-on:click.prevent="editarContato(contato.id)">Editar</a>
-                                    &nbsp;&nbsp;
-                                    <a href="#" v-on:click.prevent="removerContato(contato.id)">Remover</a>
-                                </div>
-                                <div class="col-6 tab-content">
-                                    asdkjaskldj
-                                    <!-- Continuar a partir daqui! -->
-                                </div>
+                                {{ contato.nome }}
+                                {{ contato.telefone }}
+                                
+                                <a href="#" v-on:click.prevent="editarContato(contato.id)">Editar</a>
+                                &nbsp;&nbsp;
+                                <a href="#" v-on:click.prevent="removerContato(contato.id)">Remover</a>
                             </div>
                         </div>
-                        <div v-else>
-                            <p>Nao ha registros!</p>
-                        </div>
+                    </div>
+                    <div class="col-7 tab-content">
+                        CAMPOS DE ADICIONAR OU EDITAR
+                        <!-- Continuar a partir daqui! -->
+                    </div>
+                    <div v-else>
+                        <p>Nao ha registros!</p>
                     </div>
                 </div>
-            </div>
+            </section>
             <!-- <input type="hidden" name="id" v-model="contato.id">
             <p>
                 Nome<span class="red-star">*</span>: 
@@ -71,8 +69,9 @@
             <p>
                 <input type="button" name="salvar" value="Salvar" v-on:click="salvarContato()">
                 <input type="button" name="limpar" value="Limpar" onclick="">
-            </p> -->
+            </p> 
             <hr>
+            -->
 		</div>
 		
         <script src="agenda.js"></script>

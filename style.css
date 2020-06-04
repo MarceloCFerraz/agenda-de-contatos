@@ -23,21 +23,35 @@ td, th {
     text-align: left;
 }
 
+#app {
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+
 .background-home{
+    position: relative;
     background-color: #B7D6F7;
     width: 100%;
     height: 100%;
 }
 
 .main-card{
-    margin: 5%;
-    width: 100%;
+    width: 70%;
     height: auto;
+    position: relative;
+    margin-left: 15%;
+    margin-right: auto;
     background-color: white;
+    border-radius: 0.5em;
 }
 
 .card-content{
-    margin: 5%;
+    display: block;
+    position: relative;
+    width: 90%;
+    height: auto;
+    margin: 10px;
 }
 
 .title{
@@ -47,6 +61,7 @@ td, th {
 }
 
 .contacts-list{
+    display: inline-block;
     border: 1px #8492A6;
     border-radius: 30%;
 }
@@ -54,7 +69,7 @@ td, th {
 .contact-object{
     margin: 5%;
     border: 1px #8492A6;
-    border-radius: 30%;
+    border-radius: 0.5em;
 }
 
 .contact-icon{
@@ -66,6 +81,12 @@ td, th {
 
 .contact-info{
 
+}
+
+.tab-content {
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
 }
 
 .red-star{
