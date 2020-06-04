@@ -116,3 +116,13 @@ td, th {
     justify-content: center;
     align-items: center;
 }
+
+.main-obs{
+    opacity: 0.92;
+    width: 50%; 
+    height: 100%;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
