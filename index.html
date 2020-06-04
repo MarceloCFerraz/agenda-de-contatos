@@ -21,18 +21,19 @@
                         <h2>Sua Lista de Contatos</h2>
                     </div>
                     <div v-if="contatos.length > 0" class="col-4 list-group contacts-list">
-                        <div v-for="contato in contatos" class="contact-object">                                
+                        <div v-for="contato in contatos" class="contact-object" v-on:click.prevent="editarContato(contato.id)">
                             <div class="list-group-item list-group-item-action contact-info">
                                 <div class="contact-icon">
                                     <input type="hidden" name="id" v-model="contato.id">
                                 </div> <!-- é pra ser uma bola com tamanho fixo só pra ocupar espaço msm -->
-
-                                {{ contato.nome }}
-                                {{ contato.telefone }}
+                                <div class="contact-info">
+                                    {{ contato.nome }}
+                                    {{ contato.telefone }}
+                                </div>
+                                <div class="contact-actions">
+                                    <a href="#" v-on:click.prevent="removerContato(contato.id)">Remover</a>
+                                </div>
                                 
-                                <a href="#" v-on:click.prevent="editarContato(contato.id)">Editar</a>
-                                &nbsp;&nbsp;
-                                <a href="#" v-on:click.prevent="removerContato(contato.id)">Remover</a>
                             </div>
                         </div>
                     </div>
