@@ -24,25 +24,25 @@
                         <h2>Sua Lista de Contatos</h2>
                     </div>
 
-                    <div class="col-13 HiddenButton">
-                            <input type="button" name="Showhide" id="esconder" onclick="ShowHideX(0)" class="circulo blue" placeholder="+">
-                        </form>
+                    <div name="Showhide" id="esconder" onclick="ShowHideX(0)" class="rounded-circle circulo">
+                        <span id="plus-signal">+</span>
                     </div>
                     
                     <div v-if="contatos.length > 0" class="col-4 list-group contacts-list">
                         <div v-for="contato in contatos" class="contact-object" v-on:click.prevent="editarContato(contato.id)" onclick="ShowHideX(0)">
                             <div class="list-group-item list-group-item-action contact-info">
-                                <div class="contact-icon">
+                                <!-- <div class="contact-icon">
                                     <input type="hidden" name="id" v-model="contato.id">
-                                </div> <!-- é pra ser uma bola com tamanho fixo só pra ocupar espaço msm -->
+                                </div> é pra ser uma bola com tamanho fixo só pra ocupar espaço msm -->
                                 <div class="contact-info">
                                     {{ contato.nome }}
                                     {{ contato.telefone }}
                                 </div>
                                 <div class="contact-actions">
                                     <a href="#" v-on:click.prevent="removerContato(contato.id)">Remover</a>
-                                </div>                                
+                                </div>                              
                             </div>
+                            <div class="break"></div>
                         </div>
                     </div>
                     <div class="col-4 list-group contacts-list" v-else>
@@ -80,13 +80,14 @@
                                         <input type="button" class="btn btn-success" name="salvar" value="Salvar" v-on:click="salvarContato()">
                                         <input type="button" class="btn btn-light" name="limpar" value="Limpar" onclick="">
                                     </p>
-                                    <hr>
                                 </div>
                         
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <footer>© 2020 Marcelo Carvalho Ferraz & Casssiano Medrado</footer>
 
             </section>
            

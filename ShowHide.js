@@ -1,7 +1,8 @@
 function ShowHideX(x){
-    if(x == 0)
+    if(x == 0){
         document.getElementById('obs').style.display='block';
-     else
+    } else {
         document.getElementById('obs').style.display='none';
+    }
     return;
 }
