@@ -1,8 +1,8 @@
 var app = new Vue({
     el: "#app",
     data: {
-        default: {} = { id: null, nome: "", email: null, telefone: "", instagram: null, facebook: null },
-        contato: {} = { id: null, nome: "", email: null, telefone: "", instagram: null, facebook: null },
+        default: {} = { id: null, nome: null, email: null, telefone: "", instagram: null, facebook: null },
+        contato: {} = { id: null, nome: null, email: null, telefone: "", instagram: null, facebook: null },
         contatos: [] = [],
         url: "./agenda.php"
     },
@@ -97,6 +97,10 @@ var app = new Vue({
                     // location.reload();
                 }
             })             
+        },
+
+        cleanFields() {
+            this.contato = Object.assign({}, this.default)
         }
     }
 })

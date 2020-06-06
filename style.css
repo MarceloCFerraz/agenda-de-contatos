@@ -27,6 +27,10 @@ footer{
     text-align: center;
 }
 
+a{
+    color: red;
+}
+
 #app {
     position: relative;
     left: 0px;
@@ -47,7 +51,7 @@ footer{
     min-height: 670px;
     height: auto;
     position: relative;
-    margin-top: 15%;
+    margin-top: 5%;
     margin-left: 15%;
     margin-right: auto;
     background-color: white;

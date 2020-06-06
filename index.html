@@ -24,7 +24,7 @@
                         <h2>Sua Lista de Contatos</h2>
                     </div>
 
-                    <div name="Showhide" id="esconder" onclick="ShowHideX(0)" class="rounded-circle circulo">
+                    <div name="Showhide" id="esconder" v-on:click="cleanFields()" onclick="ShowHideX(0)" class="rounded-circle circulo">
                         <span id="plus-signal">+</span>
                     </div>
                     
@@ -35,7 +35,7 @@
                                     <input type="hidden" name="id" v-model="contato.id">
                                 </div> é pra ser uma bola com tamanho fixo só pra ocupar espaço msm -->
                                 <div class="contact-info">
-                                    {{ contato.nome }}
+                                    <b>{{ contato.nome }}</b>
                                     {{ contato.telefone }}
                                 </div>
                                 <div class="contact-actions">
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="col-4 list-group contacts-list" v-else>
-                        <div class="contact-object" style="">
+                        <div class="contact-object">
                             <p class="no-contacts">Nao há registros!</p>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                                     </p>
                                     <p>
                                         <input type="button" class="btn btn-success" name="salvar" value="Salvar" v-on:click="salvarContato()">
-                                        <input type="button" class="btn btn-light" name="limpar" value="Limpar" onclick="">
+                                        <input type="button" class="btn btn-light" name="limpar" value="Limpar" v-on:click="cleanFields()">
                                     </p>
                                 </div>
                         
